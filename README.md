@@ -1,11 +1,17 @@
-# Derive AI Notebook
+# Derive AI
+Derive AI is an intelligent workspace designed to bridge the gap between scratchpad math and AI.
+The AI features include:
+* **Autosolve** --- Instant derivation of complex equations.
+* **Explanations** --- Natural language breakdowns of mathematical logic.
+* **Check Your Work** --- Built-in error detection and verification.
 
-Pen-first notebook with:
+_Entry for the 2026 CXC AI Hackathon._
+
+## Technologies
 - `frontend/`: React + TypeScript + Vite
 - `backend/`: Express + TypeScript + MongoDB
 
 ## Prerequisites
-
 - Node.js `18+`
 - npm
 - MongoDB (local or Atlas)
@@ -14,7 +20,6 @@ Pen-first notebook with:
 - OpenRouter API key (required for solve/graph features)
 
 ## Setup
-
 1. Install dependencies
 
 ```bash
@@ -67,7 +72,6 @@ npm run dev
 - Health check: `http://localhost:3001/health`
 
 ## Root Scripts
-
 - `npm run dev` / `npm run dev:all`: run frontend + backend
 - `npm run dev:frontend`: run frontend only
 - `npm run dev:backend`: run backend only
@@ -76,7 +80,6 @@ npm run dev
 - `npm run install:all`: install root/frontend/backend deps
 
 ## Feature-to-Env Mapping
-
 - Auth/login + notes API: `VITE_AUTH0_*`, `AUTH0_*`
 - Chat widget: `GEMINI_API_KEY` (`GEMINI_MODEL` optional)
 - Solve selected math: `OPENROUTER_API_KEY` (`OPENROUTER_SOLVER_MODEL` optional, defaults to `openai/gpt-4o`)
@@ -85,7 +88,6 @@ npm run dev
 - Check my work: `OPENROUTER_API_KEY` (`OPENROUTER_CHECK_MODEL` optional, falls back to `OPENROUTER_SOLVER_MODEL`)
 
 ## API Routes
-
 - `GET /health`
 - `GET /api/notes`
 - `GET /api/notes/:id`
@@ -99,7 +101,6 @@ npm run dev
 - `POST /api/check`
 
 ## Additional Docs
-
 - `GETTING_STARTED.md`
 - `LATEX_GUIDE.md`
 - `backend/README.md`
