@@ -1,10 +1,10 @@
 # Derive AI
-Derive AI is an intelligent math workspace designed to integrate AI tools directly into your whiteboarding environment. Built for the 2026 CXC AI Hackathon, it transforms traditional scratchpad math into a dynamic AI-powered learning experience.
+Derive AI is an intelligent math workspace designed to integrate AI tools directly into your whiteboarding environment. Built for the 2026 CXC AI Hackathon, it transforms traditional scratchpad math into a dynamic, AI-powered learning experience.
 
 The AI features include:
-* **Autosolve** —— Instant derivation of complex equations.
-* **Explanations** —— Natural language breakdowns of mathematical logic.
-* **Check Your Work** —— Built-in error detection and verification.
+* **Autosolve** — Instant derivation of complex equations.
+* **Explanations** — Natural language breakdowns of mathematical logic.
+* **Check Your Work** — Built-in error detection and verification.
 
 ## Technical Stack
 - `frontend/`: React + TypeScript + Vite
@@ -76,7 +76,7 @@ npm run dev
 - `npm run dev:backend`: run backend only
 - `npm run build`: build backend then frontend
 - `npm run preview`: preview frontend build
-- `npm run install:all`: install root/frontend/backend deps
+- `npm run install:all`: install root/frontend/backend dependencies
 
 ## Feature-to-Env Mapping
 - Auth/login + notes API: `VITE_AUTH0_*`, `AUTH0_*`
