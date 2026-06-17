@@ -52,8 +52,9 @@ GEMINI_API_KEY=your-gemini-api-key
 GEMINI_MODEL=gemini-flash-latest
 
 OPENROUTER_API_KEY=your-openrouter-api-key
-OPENROUTER_SOLVER_MODEL=openai/gpt-4o
-OPENROUTER_RECOGNITION_MODEL=openai/gpt-4o
+OPENROUTER_SOLVER_MODEL=openai/gpt-4
+OPENROUTER_RECOGNITION_MODEL=openai/gpt-5.2-chat
+OPENROUTER_CHECK_MODEL=openai/gpt-5.2-chat
 YOUR_SITE_URL=http://localhost:3001
 
 MIGRATION_OWNER_SUB=
@@ -81,10 +82,10 @@ npm run dev
 ## Feature-to-Env Mapping
 - Auth/login + notes API: `VITE_AUTH0_*`, `AUTH0_*`
 - Chat widget: `GEMINI_API_KEY` (`GEMINI_MODEL` optional)
-- Solve selected math: `OPENROUTER_API_KEY` (`OPENROUTER_SOLVER_MODEL` optional, defaults to `openai/gpt-4o`)
-- Add selected math to graph: `OPENROUTER_API_KEY` (`OPENROUTER_RECOGNITION_MODEL` optional, defaults to `openai/gpt-4o`)
+- Solve selected math: `OPENROUTER_API_KEY` (`OPENROUTER_SOLVER_MODEL` optional, defaults to `openai/gpt-4`)
+- Add selected math to graph: `OPENROUTER_API_KEY` (`OPENROUTER_RECOGNITION_MODEL` optional, defaults to `openai/gpt-5.2-chat`)
 - Handwriting recognition: `OPENROUTER_API_KEY` (`OPENROUTER_RECOGNITION_MODEL` optional)
-- Check my work: `OPENROUTER_API_KEY` (`OPENROUTER_CHECK_MODEL` optional, falls back to `OPENROUTER_SOLVER_MODEL`)
+- Check my work: `OPENROUTER_API_KEY` (`OPENROUTER_CHECK_MODEL` optional, defaults to `openai/gpt-5.2-chat`)
 
 ## API Routes
 - `GET /health`
@@ -97,6 +98,8 @@ npm run dev
 - `POST /api/chat`
 - `POST /api/solve`
 - `POST /api/graph`
+- `POST /api/recognize`
+- `POST /api/nextstep`
 - `POST /api/check`
 
 ## Additional Docs

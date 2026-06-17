@@ -1,6 +1,6 @@
 # Derive AI Notebook Backend
 
-Express + TypeScript API for notes persistence using MongoDB and AI-powered equation solving.
+Express + TypeScript API for notes persistence, Auth0-protected requests, AI chat, and OpenRouter-powered math actions.
 
 ## Setup
 
@@ -22,7 +22,6 @@ Set `.env`:
 ```env
 PORT=3001
 MONGODB_URI=your-mongodb-atlas-connection-string
-OPENROUTER_API_KEY=your-openrouter-api-key
 NODE_ENV=development
 
 AUTH0_DOMAIN=your-auth0-domain
@@ -32,8 +31,9 @@ GEMINI_API_KEY=your-gemini-api-key
 GEMINI_MODEL=gemini-flash-latest
 
 OPENROUTER_API_KEY=your-openrouter-api-key
-OPENROUTER_SOLVER_MODEL=openai/gpt-4o
-OPENROUTER_RECOGNITION_MODEL=openai/gpt-4o
+OPENROUTER_SOLVER_MODEL=openai/gpt-4
+OPENROUTER_RECOGNITION_MODEL=openai/gpt-5.2-chat
+OPENROUTER_CHECK_MODEL=openai/gpt-5.2-chat
 YOUR_SITE_URL=http://localhost:3001
 ```
 
@@ -47,11 +47,12 @@ Server URL: `http://localhost:3001`
 
 ## AI Models
 
-This backend uses OpenRouter to access various AI models:
+This backend uses OpenRouter for math and vision requests, plus Gemini for chat:
 
-- **Equation Solving** (`/api/solve`): Uses `openai/gpt-4o` (configurable via `OPENROUTER_SOLVER_MODEL`) - a powerful chat model for solving complex math problems
-- **Handwriting Recognition** (`/api/recognize`, `/api/graph`, `/api/nextstep`): Uses `openai/gpt-4o` (configurable via `OPENROUTER_RECOGNITION_MODEL`) - a strong model for accurate OCR/handwriting recognition
-- **Chat** (`/api/chat`): Uses Gemini API (configurable via `GEMINI_MODEL`) for interactive conversations
+- **Equation solving** (`/api/solve`): uses `OPENROUTER_SOLVER_MODEL`.
+- **Handwriting recognition** (`/api/recognize`, `/api/graph`, `/api/nextstep`): uses `OPENROUTER_RECOGNITION_MODEL`.
+- **Work checking** (`/api/check`): uses `OPENROUTER_CHECK_MODEL`.
+- **Chat** (`/api/chat`): uses Gemini API (`GEMINI_MODEL`) for interactive conversations.
 
 ## Endpoints
 
@@ -62,5 +63,9 @@ This backend uses OpenRouter to access various AI models:
 - `PUT /api/notes/:id` - Update a note
 - `DELETE /api/notes/:id` - Delete a note
 - `POST /api/notes/bulk` - Bulk save notes
-- `POST /api/solve` - Recognize and solve handwritten math (uses strong Gemini model)
-- `POST /api/graph` - Recognize handwritten math for graphing (uses lightweight Gemini model)
+- `POST /api/chat` - AI chat
+- `POST /api/solve` - Recognize and solve handwritten math or solve provided LaTeX
+- `POST /api/graph` - Recognize handwritten math for graphing
+- `POST /api/recognize` - Recognize handwritten math
+- `POST /api/nextstep` - Generate a next step for a math problem
+- `POST /api/check` - Check shown mathematical work
